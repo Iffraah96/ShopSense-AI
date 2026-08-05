@@ -19,6 +19,39 @@ In e-commerce, customer retention hinges on understanding feedback at scale. Thi
 * **Model Serialization:** Joblib
 
 ---
+## 📦 Dataset Overview & Schema
+
+This project utilizes the **Women's E-Commerce Clothing Reviews** dataset sourced from Kaggle. It contains **23,486 authentic customer reviews** and ratings across high-level e-commerce product categories. 
+
+The dataset provides a hybrid blend of unstructured raw text alongside structured numerical and categorical features, making it ideal for combined NLP and predictive classification modeling.
+
+### Key Attributes & Schema
+
+| Column Name | Data Type | Description | Role in Pipeline |
+| :--- | :--- | :--- | :--- |
+| **`Review Text`** | Text | The raw body of the customer's written review | Input for DistilBERT NLP & Text Feature Extraction |
+| **`Rating`** | Integer | Product star rating given by the customer (1 to 5) | Feature for Random Forest Classifier |
+| **`Recommended IND`** | Binary | Recommendation status (1 = Recommended, 0 = Not Recommended) | **Primary Target Variable ($y$)** |
+| **`Age`** | Integer | Positive integer indicating the reviewer's age | Demographic Feature (Optional) |
+| **`Title`** | Text | Short headline/subject of the review | Auxiliary Text |
+| **`Positive Feedback Count`** | Integer | Number of other customers who found the review helpful | Engagement Metric |
+| **`Division Name`** | Categorical | High-level product division (e.g., *Initials, Petite, General*) | Product Metadata |
+| **`Department Name`** | Categorical | Product department (e.g., *Dresses, Tops, Bottoms*) | Product Metadata |
+| **`Class Name`** | Categorical | Specific product class (e.g., *Pants, Blouses, Fine Knit*) | Product Metadata |
+
+---
+
+### Data Characteristics & Preprocessing Highlights
+* **Unstructured Text:** `Review Text` contains varying lengths of natural language customer feedback, capturing nuances of customer sentiment, size/fit complaints, and product quality.
+* **Target Imbalance:** Approximately 82% of reviews are positive recommendations (`Recommended IND = 1`), requiring stratified sampling (`stratify=y`) during the train-test split to ensure reliable model evaluation.
+* **Engineered Features:** Preprocessing derives additional tabular signals from raw text, including `Review_Length`, `Word_Count`, `Has_Exclamation`, and a fine-tuned Transformer sentiment binary score (`Transformer_Sentiment`).
+
+---
+
+### Data Source & Citation
+* **Source:** [Kaggle: Women's E-Commerce Clothing Reviews](https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews)
+* **Access Note:** Data is anonymized and licensed for public educational and non-commercial research use.
+---
 
 ## 📁 Repository Structure
 Code output

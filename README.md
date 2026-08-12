@@ -105,7 +105,7 @@ Women's E-Commerce Clothing Reviews
 
 **Source**
 
-Kaggle
+Kaggle: https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews?resource=download
 
 The dataset contains customer reviews for women's clothing products including:
 
@@ -119,9 +119,7 @@ The dataset contains customer reviews for women's clothing products including:
 * Department Name
 * Class Name
 
-Target Variable:
-
-**Recommended IND**
+Target Variable: **Recommended IND**
 
 ---
 
